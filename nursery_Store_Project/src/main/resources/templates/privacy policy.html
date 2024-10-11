@@ -1,0 +1,166 @@
+<html xlmns:th="www.thymeleaf.org">
+
+<head>
+	
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css}" />
+
+    <title>Privacy Policy - Indian Railways</title>
+    <style>
+		html{
+			font-size: 62.5%;
+			scroll-behavior: smooth;
+			scroll-padding-top: 7rem;
+		}
+		.header-1
+		{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding:2rem 9%;
+			background: green;
+			cursor: pointer;
+			font-size: 25px;
+			font-weight: 2000;
+		}
+		.header-1 span{
+			font-weight: lighter;
+			color:#fff;
+			font-size: 20px;
+		}
+		.header-1 a{
+			padding: 0 .7rem;
+			color:#fff;
+			font-size: 18px;
+		}
+	
+		.header-1 a:hover{
+			color: chartreuse;
+		}
+		
+		.share{
+			margin-bottom: 60px;
+			margin-top: -50px;
+			margin-right: -70px;
+		}
+
+        body {
+            font-family: comic sans ms;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-image: linear-gradient(lightgreen, greenyellow) ;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+				background: #fff;
+			    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.5);
+			    position: relative;
+			    z-index: 10000;
+				overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+			padding: 20px 80px;
+            text-decoration: none;
+			font-size: 20px;
+			font-weight:1000 ;
+        }
+
+        nav a:hover {
+			background-color: darkgreen;
+            color:chartreuse;
+			color: white;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+        }
+
+        h2{
+            color:darkcyan;
+            font-family: monospace;
+            font-size: 40px;
+        }
+        p{
+            line-height: 2;
+            font-size: 20px;
+        }
+
+
+        footer {
+            background-image: linear-gradient(seagreen, green,darkgreen) ;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+			position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+		<div class="header-1">
+						
+			<h1><i class="fas fa-seedling"></i>Nursery Shop</h1>
+						<div class="share">
+							<span>Follow Us: </span>
+							<a href:"#" class="fab fa-facebook-f"></a>
+							<a href:"#" class="fab fa-twitter"></a>
+							<a href:"#" class="fab fa-instagram"></a>
+							<a href:"#" class="fab fa-linkedin"></a>
+						</div>
+       
+    </header>
+
+    <nav>
+        <a th:href="@{/home}">Home</a>
+        <a href="aboutUs">About Us</a>
+        <a href="#">Services</a>
+        <a href="privacyPolicy">Privacy Policy</a>
+        <a href="contactUs">Contact Us</a>
+    </nav>
+
+    <section>
+        <h2><u>Privacy Policy</u></h2>
+<p>		We collect various types of information, including:
+
+		<br><b>Personal Information:</b><br> This includes your name, email address, phone number, shipping address, and payment details when you make a purchase or register on our site.
+		<br><b>Usage Data:</b><br> We collect data about your interactions with our website, such as pages visited, time spent, and device information.
+		<br><b>Cookies and Tracking Technologies:</b><br> We use cookies and similar technologies to enhance your browsing experience and analyze website traffic.</p>
+		        <h2><u>The user may not:</u></h2>
+          <p>Copy (whether by printing off on to paper, storing on disk, downloading or in any other way), distribute (including distributing copies), broadcast, alter or tamper with in any way or otherwise use any material contained in the portal except as set out under “The user may”. This restrictions apply in relation to all or p[art of the material on Portal;
+
+        Remove any copyright, other intellectual property notices contained in the original material from any material copied or printed off from the portal;
+
+      Link to this Portal; 
+
+       …..without the written consent
+
+        If the user wishes to provide a hypertext or other link to this portal, please contact the website administrator with details of:
+
+       The URL(s) of the web page(s) from which the user is proposing to link to this portal The URL(s) of the web page(s) on this Portal to which the user is proposing to link …..and request will be considered. Indian Railways has the sole discretion to accept or reject such requests.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Animation of Nursery Shop. All rights reserved by Mohammad Faiz, Raghuveer Kumar and Noman Shoyeb</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>SignUp</title>
+
+<link rel="stylesheet" th:href="@{css/loginstyle.css}" type="text/css">	
+<script src="https://kit.fontawesome.com/3f0d453746.js" crossorigin="anonymous"></script>
+</head>
+	<body style="background: url(images/loginbg.png);">
+		<div class="container">
+			<div class="form-box">
+				<h1 id="title">Sign Up</h1>
+				<form method="post" action="/signupres">
+					<div class="input-group">
+						<div class="input-field" id="nameField">
+							<i class="fa-solid fa-user"></i>
+							<input type="text" placeholder="Name" name="username" required>
+						</div>
+						
+						<div class="input-field">
+								<i class="fa-solid fa-envelope"></i>	
+								<input type="text" placeholder="Email Id" name="email" required>
+						</div>
+						<div class="input-field">
+								<i class="fa-solid fa-lock"></i>														
+								<input type="password" placeholder="Password" name="pw" required>
+						</div>
+						<p><a th:href="login" id="forgetpw"></a></p>
+					</div>
+					<div class="btn-field">
+						<button type="submit" id="signinbtn">Sign up</input>
+					</div>
+					<h3>Already have an Account?<a th:href="@{/}">Click Here to Login</a></h3>
+					<p th:text="${msg}" class="msg"></p>
+				</form>
+			</div>
+		</div>
+	</body>
+	
+</html>

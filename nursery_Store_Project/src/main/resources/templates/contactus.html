@@ -1,0 +1,128 @@
+<html xmlns:th="ww.thymeleaf.org">
+
+<head>
+    <title>Contact Us - Indian Railways</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url(images/template.webp) no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 5.0);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: comic sans ms;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        label,
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+          
+		.footer{
+		    background: rgba(0, 0, 0, 1.0);
+		    box-shadow: 0 0 30px rgba(69, 160, 73, 1.0);
+		    width: 100%;
+		    transform: translate(0px, 50px);
+			height: 115px;
+		}
+
+		.footer a{
+		    text-decoration: none;
+		    color:#45a049;
+		    padding:10px 5px;
+		    font-family: comic sans ms;
+		    float:right;
+		    margin:0px 20px;
+		    font-size: 20px;
+		}
+
+		.footer a:hover{
+		    display: block;
+		    block-size: 20px;
+		    border-block-color: white;
+		    border-color: white;
+		    border-style: solid;
+		    color:white;
+		    padding: 20px;
+		}
+
+		.disclaim{
+		    color:white;
+		    float:right;
+		    font-family:comic sans ms;
+		    padding:5px 10px;
+		    margin-top: 20px;
+			margin-right: 600px;
+		}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><u>Contact Us - Nursey Store</u></h1>
+        <form action="#" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+	<footer class="footer">
+	    <a href="/aboutUs">About Us</a>
+	    <a href="/privacy">privacy policy</a>
+	    <a href="#">Terms & Conditions</a>
+	    <a th:href="@{/home}">Home</a><br>
+	    <p class="disclaim">Disclaimer: Copyright @2024 Made by Mohammad Faiz,Raghuveer kumar and Noman Shoyeb</p>
+	 </footer>
+
+</body>
+
+</html>

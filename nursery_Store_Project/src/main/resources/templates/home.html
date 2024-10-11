@@ -1,0 +1,484 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css}" />
+
+		<link rel="stylesheet" th:href="@{css/homestyle.css}" type="text/css" />
+		
+		</head>
+		<script>
+			function add()
+			{
+				alert("Item successfully added to Cart !");
+			}
+			
+		</script>
+	
+	<body >
+		
+		<!-- header Section-->
+		
+		<header>
+			
+			<div class="header-1">
+				
+				<div class="share">
+					<span>Follow Us: </span>
+					<a href:"#" class="fab fa-facebook-f"></a>
+					<a href:"#" class="fab fa-twitter"></a>
+					<a href:"#" class="fab fa-instagram"></a>
+					<a href:"#" class="fab fa-linkedin"></a>
+				</div>
+					
+				<div class="call">
+					<span>Call Us: </span>
+					<a href="#">+91-9369066126</a>
+				</div>
+			</div>
+			
+			<div class="header-2">
+				
+				<a href="#" class="logo"><i class="fas fa-seedling"></i>NURSERY STORE</a>
+				
+				<form action="" class="search-bar-container">
+					<input type="search" id="search-bar" placeholder="search here...">
+					<label for="search-bar" class="fas fa-search"></label>
+				</form>
+			</div>
+			
+			<div class="header-3">
+				
+				<nav class="navbar">
+					<a href="#home">Home</a>
+					<a href="#category">Category</a>
+					<a href="#product">Product</a>
+					<a href="/aboutUs">About Us</a>
+					<a href="/contactUs">Contact Us</a>
+						
+				</nav>
+				
+				<div class="icons">
+					<a href="/showcart" class="fas fa-shopping-cart" style="position: relative;"></a>
+					<span th:text="${count}"></span>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="/" class="fa-solid fa-right-from-bracket"></a>
+				</div>
+			</div>
+		</header>
+
+		<!--Image Slider starts  from here-->
+
+			<div class="slide-container">
+				
+				<div class="slides">
+					<img th:src="@{images/slide1.jpg}" class="active">
+					<img th:src="@{images/basket.jpeg}">
+					<img th:src="@{images/plants.webp}">
+					<img th:src="@{images/template.webp}">
+					<img th:src="@{images/slide2.webp}">
+				</div>
+
+				<div class="buttons">
+					<span class="next">&#10095;</span>
+					<span class="prev">&#10094;</span>
+				</div>
+
+				<div class="dotsContainer">
+					<div class="dot active" attr='0' onclick="switchImage(this)"></div>
+					<div class="dot" attr='1' onclick="switchImage(this)"></div>
+					<div class="dot" attr='2' onclick="switchImage(this)"></div>
+					<div class="dot" attr='3' onclick="switchImage(this)"></div>
+					<div class="dot" attr='4' onclick="switchImage(this)"></div>
+				</div>
+
+			</div>
+
+			<script type="text/javascript">
+				
+				let slideImages = document.querySelectorAll('img');
+				let next = document.querySelector('.next');
+				let prev = document.querySelector('.prev');
+				let dots = document.querySelectorAll('.dot');
+
+				var counter = 0;
+
+				next.addEventListener('click', slideNext);
+				function slideNext(){
+				slideImages[counter].style.animation = 'next1 0.5s ease-in forwards';
+				if(counter >= slideImages.length-1){
+					counter = 0;
+				}
+				else{
+					counter++;
+				}
+				slideImages[counter].style.animation = 'next2 0.5s ease-in forwards';
+				indicators();
+				}
+
+				prev.addEventListener('click', slidePrev);
+				function slidePrev(){
+				slideImages[counter].style.animation = 'prev1 0.5s ease-in forwards';
+				if(counter == 0){
+					counter = slideImages.length-1;
+				}
+				else{
+					counter--;
+				}
+				slideImages[counter].style.animation = 'prev2 0.5s ease-in forwards';
+				indicators();
+				}
+
+				function autoSliding(){
+					deletInterval = setInterval(timer, 3000);
+					function timer(){
+						slideNext();
+						indicators();
+					}
+				}
+				autoSliding();
+
+				const container = document.querySelector('.slide-container');
+				container.addEventListener('mouseover', function(){
+					clearInterval(deletInterval);
+				});
+
+				container.addEventListener('mouseout', autoSliding);
+
+				function indicators(){
+					for(i = 0; i < dots.length; i++){
+						dots[i].className = dots[i].className.replace(' active', '');
+					}
+					dots[counter].className += ' active';
+				}
+
+				function switchImage(currentImage){
+					currentImage.classList.add('active');
+					var imageId = currentImage.getAttribute('attr');
+					if(imageId > counter){
+					slideImages[counter].style.animation = 'next1 0.5s ease-in forwards';
+					counter = imageId;
+					slideImages[counter].style.animation = 'next2 0.5s ease-in forwards';
+					}
+					else if(imageId == counter){
+						return;
+					}
+					else{
+					slideImages[counter].style.animation = 'prev1 0.5s ease-in forwards';
+					counter = imageId;
+					slideImages[counter].style.animation = 'prev2 0.5s ease-in forwards';	
+					}
+					indicators();
+				}
+
+			</script>
+			<!--Image slider Ends here-->
+			
+		
+		<!--Category Section Starts-->
+		
+	<section id="category" class="category">
+		
+		<h1 class="heading">Category</h1>
+		
+		<div class="box-container">
+			
+			<div class="box">
+				<img th:src="@{images/vegetables.webp}" >
+					<h3>Vegetables</h3>
+					<a href="/showVeg" class="btn">Show More</a>			
+			</div>
+			
+			<div class="box">
+							<img th:src="@{images/grains.jpg}" >
+								<h3>Grains</h3>
+								<a href="/showGrains" class="btn">Show More</a>			
+						</div>
+						
+						<div class="box">
+										<img th:src="@{images/plants.webp}" >
+											<h3>Plants</h3>
+											<a href="showPlants" class="btn">Show More</a>			
+									</div>		
+		</div>	
+		
+		<div class="box-container">
+					
+					<div class="box">
+						<img th:src="@{images/flowers.jfif}" >
+							<h3>Flowers</h3>
+							<a href="/showFlowers" class="btn">Show More</a>			
+					</div>
+					
+					<div class="box">
+									<img th:src="@{images/beetroot.jpg}" >
+										<h3>Organic Seeds</h3>
+										<a href="showOrganic" class="btn">Show More</a>			
+								</div>
+								
+								<div class="box">
+												<img th:src="@{images/broccoli-seed.jpg}" >
+													<h3>Mimosa Seeds</h3>
+													<a href="showMimosa" class="btn">Show More</a>			
+											</div>		
+				</div>	
+		
+	</section>
+		
+	
+		<!--Category section ends-->
+		
+		
+		<!--Product section-->
+		
+		<section class="product" id="product">
+			
+			<h1 class="heading">New Products</h1>
+			
+			<div class="box-container">
+				<div class="box">
+					<span class="discount">10% off</span>
+					<div class="icons">
+						<a href="#" class="fas fa-heart"></a>
+						<a href="#" class="fas fa-share"></a>
+							<a href="#" class="fas fa-eye"></a>
+					</div>
+						
+					<img th:src="@{images/money-plant.webp}" >
+					<h3>Money Plant Mason Jar Terrarium</h3>
+					
+					<form method="post" action="/add">
+						
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<div class="quantity" >
+						<span> Quantity: </span>
+						<input type="number" min="1" max="100" value="1" name="qty">
+						<input type="text" name="id" value=1 hidden>
+					</div>
+					<div class="price">₹496 <span> ₹518</span></div>
+					<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+					
+				</div>
+				</form>
+				
+				<div class="box">
+									<span class="discount">5% off</span>
+									<div class="icons">
+										<a href="#" class="fas fa-heart"></a>
+										<a href="#" class="fas fa-share"></a>
+											<a href="#" class="fas fa-eye"></a>
+									</div>
+										
+									<img th:src="@{images/green-aglaonema.webp}" >
+									<h3>Green Aglaonema in Hexagon Pot</h3>
+									<form method="post" action="/add">
+									<div class="stars">
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="far fa-star"></i>
+									</div>
+									<div class="quantity">
+										<span> Quantity: </span>
+										<input type="number" min="1" max="100" value="1" name="qty">
+										<input type="text" name="id" value=2 hidden>
+									</div>
+									<div class="price">₹1710 <span> ₹1800</span></div>
+									<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+								</div>
+								</form>
+								
+								<div class="box">
+													<span class="discount">12% off</span>
+													<div class="icons">
+														<a href="#" class="fas fa-heart"></a>
+														<a href="#" class="fas fa-share"></a>
+															<a href="#" class="fas fa-eye"></a>
+													</div>
+														
+													<img th:src="@{images/three-layer-bamboo.webp}" >
+													<h3>Three Layer Bamboo Terrarium</h3>
+													<form method="post" action="/add">
+													<div class="stars">
+														<i class="fas fa-star"></i>
+														<i class="fas fa-star"></i>
+														<i class="fas fa-star"></i>
+														<i class="fas fa-star"></i>
+														<i class="far fa-star"></i>
+													</div>
+													<div class="quantity">
+														<span> Quantity: </span>
+														<input type="number" min="1" max="100" value="1" name="qty">
+														<input type="text" name="id" value=3 hidden>
+													</div>
+													<div class="price">₹791 <span> ₹899</span></div>
+													<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+												</div>
+												</form>
+												</div>
+												
+												
+								<div class="box-container">								
+												<div class="box">
+														<span class="discount">11% off</span>
+												<div class="icons">
+												<a href="#" class="fas fa-heart"></a>
+												<a href="#" class="fas fa-share"></a>
+												<a href="#" class="fas fa-eye"></a>
+												</div>
+												<img th:src="@{images/jade-plant.webp}" >
+												<h3>Jade Plant 4" Glass Terrarium</h3>
+												<form method="post" action="/add">
+												<div class="stars">
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="far fa-star"></i>
+												</div>
+												<div class="quantity">
+												<span> Quantity: </span>
+												<input type="number" min="1" max="100" value="1" name="qty">
+												<input type="text" name="id" value=4 hidden>
+												</div>
+												<div class="price">₹355 <span> ₹399</span></div>
+												<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+												</div>	
+												</form>
+												
+												
+												<div class="box">
+												<span class="discount">8% off</span>
+												<div class="icons">
+												<a href="#" class="fas fa-heart"></a>
+												<a href="#" class="fas fa-share"></a>
+												<a href="#" class="fas fa-eye"></a>
+												</div>
+												<img th:src="@{images/grand-5-green.webp}" >
+												<h3>Grand 5 Green House Plant Set</h3>
+												<form method="post" action="/add">
+												<div class="stars">
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+											<i class="fas fa-star"></i>
+											<i class="far fa-star"></i>
+											</div>
+											<div class="quantity">
+											<span> Quantity: </span>
+											<input type="number" min="1" max="100" value="1" name="qty">
+											<input type="text" name="id" value=5 hidden>
+											</div>
+											<div class="price">₹1195 <span> ₹1299</span></div>
+											<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+											</div>
+											</form>
+												
+																																			
+			<div class="box">
+			<span class="discount">14% off</span>
+			<div class="icons">
+			<a href="#" class="fas fa-heart"></a>
+			<a href="#" class="fas fa-share"></a>
+			<a href="#" class="fas fa-eye"></a>
+			</div>
+		<img th:src="@{images/air-purifying-syngonium.webp}" >
+		<h3>Air Purifying Syngonium with Pot</h3>
+		<form method="post" action="/add">
+		<div class="stars">
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="far fa-star"></i>
+		</div>
+		<div class="quantity">
+		<span> Quantity: </span>
+		<input type="number" min="1" max="100" value="1" name="qty">
+		<input type="text" name="id" value=6 hidden>
+		</div>
+		<div class="price">₹515 <span> ₹599</span></div>
+		<button type="submit" class="btn btn-Warning" onclick="add()"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+				</div>	
+				</form>											
+			</div>
+		</section>
+		
+		<!--Product section ends-->
+		
+		<!--Icons Section-->
+			
+		<section class="icons-container">
+			<div class="icon">
+				<img th:src="@{images/download.png}" >
+				<div class="content">
+					<h3>Free Shipping</h3>
+					<p>Free Shipping on order</p>
+				</div>
+			</div>
+			
+			<div class="icon">
+							<img th:src="@{images/moneyback.png}" >
+							<div class="content">
+								<h3>100% Money Back</h3>
+								<p>You Have 30 days to return</p>
+							</div>
+						</div>
+						
+						<div class="icon">
+										<img th:src="@{images/securePayment.png}" >
+										<div class="content">
+											<h3>Payment secure</h3>
+											<p>100% secure Payment</p>
+										</div>
+									</div>
+				
+									<div class="icon">
+											<img th:src="@{images/support.png}" >
+													<div class="content">
+														<h3>Support 24/7</h3>
+														<p>contact us anytime</p>
+													</div>
+												</div>																				
+		</section>
+		
+		
+		<!--Icons Section Ends-->
+		
+		<!--Footer Starts-->
+		
+		<footer >
+
+			<div class="footer">
+			<div class="col1">
+				<h3><u>Company</u></h3><br>
+				<a href="/aboutUs">About us</a><br>&nbsp<br>
+				<a href="#">Services</a><br>&nbsp<br>
+				<a href="/privacy">privacy Policy</a><br>&nbsp<br>
+				<a href="#">Payment Options</a>
+			  </div>
+			  <div class="col2">
+				<h3><u>Get Help</u></h3><br>
+				<a href="#">FAQ</a><br>&nbsp<br>
+				<a href="#">shipping</a><br>&nbsp<br>
+				<a href="#">Return</a><br>&nbsp<br>
+			  </div>
+			  <div class="col3">
+				<h3><u>Quick Links</u></h3><br>
+				<a  href="@{/home}" >Home</a><br>&nbsp<br>
+				<a href="#category" >Category</a><br>&nbsp<br>
+				<a href="#product" >products</a><br>&nbsp<br>
+				<a href="/contactUs">Contact Us</a><br>&nbsp<br>
+			  </div>
+			  </div>
+			  		
+		</footer>
+
+	</body>
+</html>

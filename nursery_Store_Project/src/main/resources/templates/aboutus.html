@@ -1,0 +1,158 @@
+<html xlmns:th="www.thymeleaf.org">
+
+<head>
+	
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css}" />
+
+    <title>Privacy Policy - Indian Railways</title>
+    <style>
+		html{
+			font-size: 62.5%;
+			scroll-behavior: smooth;
+			scroll-padding-top: 7rem;
+		}
+		.header-1
+		{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding:2rem 9%;
+			background: green;
+			cursor: pointer;
+			font-size: 25px;
+			font-weight: 2000;
+		}
+		.header-1 span{
+			font-weight: lighter;
+			color:#fff;
+			font-size: 20px;
+		}
+		.header-1 a{
+			padding: 0 .7rem;
+			color:#fff;
+			font-size: 18px;
+		}
+	
+		.header-1 a:hover{
+			color: chartreuse;
+		}
+		
+		.share{
+			margin-bottom: 60px;
+			margin-top: -50px;
+			margin-right: -70px;
+		}
+
+        body {
+            font-family: comic sans ms;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-image: linear-gradient(lightgreen, greenyellow) ;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+				background: #fff;
+			    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.5);
+			    position: relative;
+			    z-index: 10000;
+				overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+			padding: 20px 80px;
+            text-decoration: none;
+			font-size: 20px;
+			font-weight:1000 ;
+        }
+
+        nav a:hover {
+			background-color: darkgreen;
+            color:chartreuse;
+			color: white;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+        }
+
+        h2{
+            color:darkcyan;
+            font-family: monospace;
+            font-size: 40px;
+        }
+        p{
+            line-height: 2;
+            font-size: 20px;
+        }
+
+
+        footer {
+            background-image: linear-gradient(seagreen, green,darkgreen) ;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+			
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+		<div class="header-1">
+						
+			<h1><i class="fas fa-seedling"></i>Nursery Shop</h1>
+						<div class="share">
+							<span>Follow Us: </span>
+							<a href:"#" class="fab fa-facebook-f"></a>
+							<a href:"#" class="fab fa-twitter"></a>
+							<a href:"#" class="fab fa-instagram"></a>
+							<a href:"#" class="fab fa-linkedin"></a>
+						</div>
+       
+    </header>
+
+    <nav>
+        <a th:href="@{/home}">Home</a>
+        <a href="aboutUs">About Us</a>
+        <a href="#">Services</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="contactUs">Contact Us</a>
+    </nav>
+
+    <section>
+        <h2><u>About Us</u></h2>
+        <p>Welcome to Our Nursery Store, 
+
+		we understand that bringing a new life into the world is a joyous occasion, and preparing for your little one's arrival is an exciting journey. That's why we're dedicated to providing you with the best online shopping experience for all your nursery needs. 
+			</p>
+			
+		<p><u><b>Our Values</b></u><br>
+
+			<b>Quality and Safety:</b> We ensure that every product meets the highest standards, so you can trust what you're bringing into your home.<br>
+			<b>Personalized Service:</b> Our dedicated team is always available to offer expert advice and support.<br>
+			<b>Sustainability:</b> We strive to reduce our ecological footprint through eco-friendly practices and products.<br>
+			<b>Community: </b>We believe in building a supportive community of parents, sharing knowledge, and celebrating milestones together.<br>
+		</p>	
+			 <footer>
+        <p>&copy; 2024 Animation of Nursery Shop. All rights reserved by Mohammad Faiz, Raghuveer Kumar and Noman Shoyeb</p>
+    </footer>
+
+</body>
+
+</html>

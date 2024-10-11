@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<style>
+			
+			.carttab{
+				width: 1500px;
+				height: 1500px;
+				background-color: black;
+				color: white;
+				position: fixed;
+				position: fixed;
+				
+			}
+			
+			.carttab h1{
+				padding: 20px;
+				margin:0;
+				font-weight: 300;
+			}
+			
+			.carttab table tr{
+				color: antiquewhite;
+			}
+			.listcart{
+				height: 400px;
+			}
+			.carttab a img{
+				width:50px;
+			}
+		</style>
+	</head>
+<body>
+	<div class="carttab">
+		<span><a th:href="@{/home}"><img th:src="@{/images/back.jpeg}"></a></span>
+		<h1>Shopping Cart</h1>
+		
+	<div class="listcart">
+		<table border="10" width="800px">
+			<tr>
+				<th>Product Id</th>
+				<th>Product Name</th>
+				<th>Product Quantity</th>
+				<th>Product Price(/per item)</th>
+				<th>Total Price</th>
+			</tr>
+			<tr th:each="p:${info}">
+				<th th:text="${p.id}"></th>
+				<th th:text="${p.name}"></th>
+				<th th:text="${p.quantity}"></th>
+				<th th:text="${p.price}"></th>
+				<th th:text="${p.quantity}*${p.price}"></th>
+			</tr>
+			<tr>
+				<th colspan="4">Amount to Pay:</th>
+				<td><b th:text="${#aggregates.sum(info.![price*quantity])}"></b></td>
+				
+			</tr>
+		</table>
+		</div>
+	    
+	</body>
+</html>
